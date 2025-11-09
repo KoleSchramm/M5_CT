@@ -5,16 +5,17 @@ using namespace std;
 
 void reverseFile(ifstream file) {
     string text;
-    ofstream outfile("CSC450-mod5-reverse.txt");
+    ofstream rFile("CSC450-mod5-reverse.txt");
     char ch;
 
     while (file.get(ch)) {
         text += ch;
     }
-
     for (int i = text.length(); i>0; i--) {
-        outfile << text[i-1];
+        rFile << text[i-1];
     }
+
+    rFile.close();
 }
 
 int main() {
@@ -24,19 +25,17 @@ int main() {
         //Append user input to file
         cout << "Type something:" << endl;
         string text;
-        cin >> text;
+        getline(cin, text);
         file << text << endl;
         file.close();
 
+        //Reverse file
         ifstream ifile("CSC450_CT5_mod5.txt", ios::app);
         reverseFile(std::move(ifile));
-
     }
     else {
         cout << "Can't open file" << endl;
     }
-
-
 
     return 0;
 }
