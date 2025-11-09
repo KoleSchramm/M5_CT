@@ -30,8 +30,9 @@ int main() {
         file.close();
 
         //Reverse file
-        ifstream ifile("CSC450_CT5_mod5.txt", ios::app);
-        reverseFile(std::move(ifile));
+        ifstream iFile("CSC450_CT5_mod5.txt", ios::app);
+        reverseFile(std::move(iFile));
+        iFile.close();
     }
     else {
         cout << "Can't open file" << endl;
